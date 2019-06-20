@@ -1,6 +1,7 @@
 package com.industrialegg.kcardsandroid
 
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,6 +15,9 @@ class RoomActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_room)
+
+        val newFragment = ConfirmCoCDiaglogFragement()
+        newFragment.show(supportFragmentManager, "CoC")
 
         val username = this.intent.getStringExtra("username")
         Snackbar.make(findViewById(android.R.id.content), "Welcome $username", Snackbar.LENGTH_LONG).show()
@@ -31,6 +35,17 @@ class RoomActivity : AppCompatActivity() {
             vibrate()
         }
 
+    }
+
+    companion object {
+
+        private val INTENT_USER_ID = "username"
+
+        fun newIntent(context: Context, username: String): Intent {
+            val intent = Intent(context, RoomActivity::class.java)
+            intent.putExtra(INTENT_USER_ID, username)
+            return intent
+        }
     }
 }
 

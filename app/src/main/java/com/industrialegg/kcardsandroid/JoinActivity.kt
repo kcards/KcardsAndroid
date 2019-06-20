@@ -1,6 +1,5 @@
 package com.industrialegg.kcardsandroid
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.mooveit.library.Fakeit
@@ -14,8 +13,7 @@ class JoinActivity : AppCompatActivity() {
         setContentView(R.layout.activity_join)
 
         join.setOnClickListener {
-            val intent = Intent(this, RoomActivity::class.java)
-            intent.putExtra("username", name.text.toString())
+            val intent = RoomActivity.newIntent(this, name.text.toString())
             startActivity(intent)
             finish()
         }
