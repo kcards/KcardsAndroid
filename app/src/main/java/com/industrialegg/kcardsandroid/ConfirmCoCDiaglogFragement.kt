@@ -15,11 +15,11 @@ class ConfirmCoCDiaglogFragement : DialogFragment() {
             val builder = AlertDialog.Builder(it)
             builder.setMessage("Remember to ask your question, in the form of a question.")
                 .setPositiveButton("Got it",
-                    DialogInterface.OnClickListener { dialog, id ->
-                        // FIRE ZE MISSILES!
+                    DialogInterface.OnClickListener { _, _ ->
+                        // Continue to room
                     })
                 .setNegativeButton("Well, actually..",
-                    DialogInterface.OnClickListener { dialog, id ->
+                    DialogInterface.OnClickListener { _, _ ->
                         val homeIntent = Intent(activity , MainActivity::class.java)
                         startActivity(homeIntent)
                     })
